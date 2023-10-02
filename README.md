@@ -1,3 +1,3 @@
 # BigSpender
 
-<img width="1266" alt="image" src="https://github.com/Eisenhuth/BigSpender/assets/47415874/df084291-7d5b-4e20-bac8-1c4259bbb937">
+<img width="1266" alt="image" src="https://github.com/Eisenhuth/BigSpender/assets/47415874/3bf8e763-95ef-4869-adae-5354e63b89db">
