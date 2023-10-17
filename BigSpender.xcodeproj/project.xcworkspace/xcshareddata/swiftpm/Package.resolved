@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "yasu",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eisenhuth/yasu.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1f5af3e16057e6bd24a589e70a19830dca43fc9a"
+      }
+    }
+  ],
+  "version" : 2
+}

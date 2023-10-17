@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import YASU
 
 struct MarketSpenderView: View {
     var itemID: Int
