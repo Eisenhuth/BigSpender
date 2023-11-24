@@ -1,10 +1,12 @@
 import SwiftUI
 import SwiftData
+import YASU
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
     @State private var textFieldString = ""
+    @State private var marketableItems: [Int]?
 
     var body: some View {
         NavigationSplitView {
@@ -25,7 +27,7 @@ struct ContentView: View {
                     NavigationLink {
                         MarketSpenderView(itemID: item.itemID)
                     } label: {
-                        Text(item.itemID.description)
+                        ItemLabel(itemId: item.itemID)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -34,14 +36,22 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
+        .task {
+            marketableItems = await loadData(Endpoints.marketableItems)
+        }
     }
 
     private func addItem() {
         withAnimation {
             if let itemID = Int(textFieldString){
-                
-                let newItem = Item(itemID: itemID)
-                modelContext.insert(newItem)
+                if let marketableItems = marketableItems{
+                    if marketableItems.contains(itemID){
+                        
+                        
+                        let newItem = Item(itemID: itemID)
+                        modelContext.insert(newItem)
+                    }
+                }
             }
         }
     }

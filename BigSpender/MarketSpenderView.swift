@@ -20,8 +20,7 @@ struct MarketSpenderView: View {
     
     var body: some View {
                 
-        let universalisUrl = URL(string: "https://universalis.app/api/v2/history/\(market)/\(itemID)\(filterByPrice ? ("?minSalePrice=\(minimumPrice)") : "")")!
-
+        let universalisUrl = URL(string: "\(Endpoints.getUniversalisItemHistory(market, itemID, 3650, 50000).absoluteString)\(filterByPrice ? ("&minSalePrice=\(minimumPrice)") : "")")!
         
         VStack(alignment: .leading){
             Picker("Region", selection: $market) {
